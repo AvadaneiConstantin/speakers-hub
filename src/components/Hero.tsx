@@ -37,7 +37,11 @@ export default function HeroVideoAbsoluteControl() {
           playsInline
           className="w-full h-full object-cover"
         >
+          <source src="/vid/speaker.webm" type="video/webm" />
+          {/* for browser that do not support .webm videos */}
           <source src="/vid/speaker.mp4" type="video/mp4" />
+          {/* Message */}
+          Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-black/30"></div>
       </div>
@@ -48,7 +52,7 @@ export default function HeroVideoAbsoluteControl() {
       <div
         className="absolute px-2 sm:px-4"
         style={{
-          top: "25%",
+          top: "18%",
           left: "50%",
           transform: "translateX(-50%)",
           width: "100%",
@@ -65,7 +69,7 @@ export default function HeroVideoAbsoluteControl() {
       <div
         className="absolute px-2 sm:px-4"
         style={{
-          top: "45%",
+          top: "40%",
           left: "50%",
           transform: "translateX(-50%)",
           width: "100%",
