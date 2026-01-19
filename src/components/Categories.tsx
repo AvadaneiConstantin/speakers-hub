@@ -1,3 +1,19 @@
+/**
+ * Categories Component - Visual Category Filter with Images
+ *
+ * Key Bindings:
+ * - Category type: Type-safe category structure
+ * - Image mapping: Category-to-image path mapping
+ * - Props interface: Categories, activeCategory, onCategoryClick
+ * - Section ID: "shop-by-category" for smooth scrolling
+ *
+ * Functionality:
+ * - Category filtering: Visual cards for product categories
+ * - Active state: Highlights selected category
+ * - Image fallback: Handles missing images gracefully
+ * - Click handling: Updates active category via callback
+ * - Descriptions: Category descriptions for better UX
+ */
 import type { Category } from "../types";
 
 // Define image paths for each category
@@ -44,7 +60,7 @@ export default function Categories({
         </h2>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
           {categories.map((category) => {
             const isActive = activeCategory === category.id;
 

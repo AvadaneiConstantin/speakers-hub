@@ -1,3 +1,20 @@
+/**
+ * Footer Component - Comprehensive Site Footer with Links
+ *
+ * Key Bindings:
+ * - Lucide icons: Social media and contact icons
+ * - Date object: Dynamic copyright year
+ * - Static data: Company info, links, categories
+ * - Grid layout: Multi-column responsive design
+ *
+ * Functionality:
+ * - Company information: SpeakersHub details and contact info
+ * - Navigation links: Quick links to main sections
+ * - Product categories: Links to product categories
+ * - Social media: Social platform links with icons
+ * - Copyright: Dynamic year with company information
+ * - Responsive layout: Adapts from single to multi-column
+ */
 import {
   Facebook,
   Twitter,
@@ -50,44 +67,54 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gray-700 dark:bg-gray-900 text-gray-300 mt-36 pb-8">
+    <footer className="bg-gray-900 text-white py-8 sm:py-12">
       <div className="container mx-auto px-4">
-        {/* Divider */}
-        <div className="border-t border-gray-800 my-14"></div>
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* Company Info Column */}
-          <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">S</span>
-              </div>
-              <span className="text-2xl font-bold text-white">SpeakersHub</span>
-            </div>
-            <p className="mb-6 text-gray-400">{companyInfo.description}</p>
-            <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          {/* Company Info */}
+          <div className="col-span-1 md:col-span-2 lg:col-span-1">
+            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
+              {companyInfo.name}
+            </h3>
+            <p className="text-gray-300 text-sm sm:text-base mb-4">
+              {companyInfo.description}
+            </p>
+            <div className="space-y-2 sm:space-y-3">
+              <div className="flex items-center space-x-2 sm:space-x-3">
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
                 <a
-                  key={index}
-                  href={social.href}
-                  className="w-10 h-10 bg-gray-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
-                  aria-label={social.label}
+                  href={`mailto:${companyInfo.email}`}
+                  className="hover:text-white transition-colors text-sm sm:text-base"
                 >
-                  {social.icon}
+                  {companyInfo.email}
                 </a>
-              ))}
+              </div>
+              <div className="flex items-center space-x-2 sm:space-x-3">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
+                <a
+                  href={`tel:${companyInfo.phone.replace(/\s/g, "")}`}
+                  className="hover:text-white transition-colors text-sm sm:text-base"
+                >
+                  {companyInfo.phone}
+                </a>
+              </div>
+              <div className="flex items-center space-x-2 sm:space-x-3">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
+                <span className="text-sm sm:text-base">
+                  {companyInfo.address}
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* Quick Links Column */}
+          {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-6">Quick Links</h3>
-            <ul className="space-y-3">
+            <h4 className="text-lg font-semibold mb-3 sm:mb-4">Quick Links</h4>
+            <ul className="space-y-2 sm:space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="hover:text-white transition-colors"
+                    className="hover:text-white transition-colors text-sm sm:text-base"
                   >
                     {link.label}
                   </a>
@@ -96,15 +123,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Categories Column */}
+          {/* Product Categories */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-6">Categories</h3>
-            <ul className="space-y-3">
+            <h4 className="text-lg font-semibold mb-3 sm:mb-4">Categories</h4>
+            <ul className="space-y-2 sm:space-y-3">
               {categories.map((category, index) => (
                 <li key={index}>
                   <a
                     href={category.href}
-                    className="hover:text-white transition-colors"
+                    className="hover:text-white transition-colors text-sm sm:text-base"
                   >
                     {category.label}
                   </a>
@@ -113,76 +140,41 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info Column */}
+          {/* Social Media */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-6">Contact Us</h3>
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-blue-400 mt-1" />
-                <span>{companyInfo.address}</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-blue-400" />
+            <h4 className="text-lg font-semibold mb-3 sm:mb-4">Follow Us</h4>
+            <div className="flex space-x-3 sm:space-x-4">
+              {socialLinks.map((social, index) => (
                 <a
-                  href={`tel:${companyInfo.phone.replace(/\s/g, "")}`}
-                  className="hover:text-white transition-colors"
+                  key={index}
+                  href={social.href}
+                  className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
+                  aria-label={social.label}
                 >
-                  {companyInfo.phone}
+                  {social.icon}
                 </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-blue-400" />
-                <a
-                  href={`mailto:${companyInfo.email}`}
-                  className="hover:text-white transition-colors"
-                >
-                  {companyInfo.email}
-                </a>
-              </div>
-            </div>
-
-            {/* Newsletter Subscription */}
-            <div className="mt-8">
-              <h4 className="font-bold text-white mb-3">
-                Subscribe to Newsletter
-              </h4>
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="flex-grow px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-              <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-medium transition-colors">
-                Subscribe
-              </button>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-600 dark:border-gray-800 my-8"></div>
-
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          {/* Copyright */}
-          <div className="mb-1 md:mb-0">
-            <p className="text-gray-400">
-              © {currentYear} SpeakersHub. All rights reserved.
+        <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-700">
+          <div className="flex flex-col sm:flex-row justify-between items-center text-sm sm:text-base">
+            <p className="text-gray-400 mb-3 sm:mb-0">
+              © {currentYear} {companyInfo.name}. All rights reserved.
             </p>
-          </div>
-
-          {/* Additional Links */}
-          <div className="flex flex-wrap justify-center gap-6 text-sm">
-            <a href="#" className="hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Terms of Service
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Cookie Policy
-            </a>
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-6 text-xs sm:text-sm">
+              <a href="#" className="hover:text-white transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Terms of Service
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Cookie Policy
+              </a>
+            </div>
           </div>
         </div>
       </div>

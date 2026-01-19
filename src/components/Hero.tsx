@@ -1,3 +1,19 @@
+/**
+ * Hero Component - Immersive Video Background Section
+ *
+ * Key Bindings:
+ * - Video element: MP4 background (10.7MB) with autoplay/loop
+ * - Document API: Smooth scroll navigation
+ * - CSS positioning: Absolute positioning for overlay content
+ * - Responsive design: Mobile-first text sizing
+ *
+ * Functionality:
+ * - Video background: Immersive speaker.mp4 video with overlay
+ * - Smooth scrolling: Scroll to categories section on CTA click
+ * - Text overlay: "Audio Experience Perfected" messaging
+ * - Responsive layout: Adaptive text sizing for all devices
+ * - Performance optimization: Muted autoplay for better loading
+ */
 export default function HeroVideoAbsoluteControl() {
   // Function to scroll to categories section
   const scrollToCategories = () => {
@@ -11,7 +27,7 @@ export default function HeroVideoAbsoluteControl() {
   };
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative h-[60vh] sm:h-[70vh] md:h-screen overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0">
         <video
@@ -30,57 +46,54 @@ export default function HeroVideoAbsoluteControl() {
 
       {/* Audio Experience - Custom Position */}
       <div
-        className="absolute"
+        className="absolute px-2 sm:px-4"
         style={{
-          top: "20%",
+          top: "25%",
           left: "50%",
           transform: "translateX(-50%)",
           width: "100%",
           maxWidth: "1200px",
-          padding: "0 1rem",
         }}
       >
-        <h1 className="text-6xl sm:text-7xl md:text-8xl font-bold text-center">
+        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-center">
           <span className="text-white">Audio</span>
-          <span className="text-white ml-4">Experience</span>
+          <span className="text-white ml-1 sm:ml-2 md:ml-4">Experience</span>
         </h1>
       </div>
 
       {/* Perfected - Custom Position */}
       <div
-        className="absolute"
+        className="absolute px-2 sm:px-4"
         style={{
-          top: "40%",
+          top: "45%",
           left: "50%",
           transform: "translateX(-50%)",
           width: "100%",
           maxWidth: "1200px",
-          padding: "0 1rem",
         }}
       >
-        <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold text-center text-blue-400">
+        <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-blue-400">
           Perfected
         </h2>
       </div>
 
       {/* Buttons - Custom Position */}
       <div
-        className="absolute text-center"
+        className="absolute text-center px-2 sm:px-4"
         style={{
           top: "65%",
           left: "50%",
           transform: "translateX(-50%)",
           width: "100%",
-          maxWidth: "500px",
-          padding: "0 1rem",
+          maxWidth: "400px",
         }}
       >
-        <p className="text-xl text-white/90 mb-6">
+        <p className="text-xs sm:text-sm lg:text-base text-white/90 mb-3 sm:mb-4 lg:mb-6">
           Discover premium audio speakers with Hi-Fi sound and deep, rich bass
         </p>
         <button
           onClick={scrollToCategories}
-          className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-lg hover:shadow-xl"
+          className="px-4 py-1.5 sm:px-6 sm:py-2 lg:px-8 lg:py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs sm:text-sm lg:text-base"
         >
           Explore Products
         </button>

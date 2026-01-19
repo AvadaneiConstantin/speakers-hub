@@ -1,8 +1,23 @@
+/**
+ * Product Data Store - Static Product & Category Information
+ *
+ * Key Bindings:
+ * - Product interface: Type-safe product structure
+ * - Category interface: Type-safe category structure
+ * - Static data: 17 products across 4 categories
+ * - Pricing: All prices in Romanian Leu (RON)
+ *
+ * Functionality:
+ * - Product catalog: Centralized product data source
+ * - Category management: Category definitions for filtering
+ * - Data consistency: Single source of truth for product info
+ * - Type safety: Imported interfaces ensure data integrity
+ */
 import type { Product, Category } from "../types";
 
-// 16 products total - 4 for each category
+// 17 products total - 5 for wireless, 4 for soundbars, 5 for home-theater, 4 for compact
 export const products: Product[] = [
-  // Wireless Speakers (4 products)
+  // Wireless Speakers (5 products)
   {
     id: "w1",
     name: "Wireless Speaker 1",
@@ -42,6 +57,16 @@ export const products: Product[] = [
     brand: "Marshall",
     rating: 4.7,
     description: "Classic Marshall design with powerful sound",
+  },
+  {
+    id: "w5",
+    name: "Wireless Speaker 5",
+    price: 2499,
+    image: "/img/wireless5.avif",
+    category: "wireless",
+    brand: "Sony",
+    rating: 4.9,
+    description: "High-resolution audio with Google Assistant",
   },
 
   // Soundbars (4 products)
@@ -86,7 +111,7 @@ export const products: Product[] = [
     description: "9.1.5 channel system with 8K support",
   },
 
-  // Home Theater Systems (4 products)
+  // Home Theater Systems (5 products)
   {
     id: "h1",
     name: "Home Theater 1",

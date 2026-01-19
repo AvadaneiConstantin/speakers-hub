@@ -1,3 +1,20 @@
+/**
+ * FullscreenModal Component - Advanced Image Viewer with Zoom
+ *
+ * Key Bindings:
+ * - useState: Modal state, current image index, zoom state
+ * - useEffect: Keyboard navigation and body scroll lock
+ * - Lucide icons: X, ChevronLeft, ChevronRight for controls
+ * - Event handling: Keyboard, click, and touch interactions
+ *
+ * Functionality:
+ * - Fullscreen display: Immersive image viewing experience
+ * - Image navigation: Previous/next with keyboard and buttons
+ * - Zoom functionality: Click to zoom in/out on images
+ * - Keyboard controls: Escape to close, arrows to navigate
+ * - Body scroll lock: Prevents background scrolling when open
+ * - Responsive design: Works on all device sizes
+ */
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
